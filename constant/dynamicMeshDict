@@ -16,11 +16,12 @@ FoamFile
 
 dynamicFvMesh             dynamicMotionSolverFvMesh;
 
-// solver                    displacementSBRStress;
 solver                    displacementLaplacian;
 
+// solver                    displacementSBRStress;
+
 // diffusivity               quadratic inversePointDistance (cylinder);
-// diffusivity               exponential 30 inversePointDistance (cylinder);
+// diffusivity               exponential 10 inversePointDistance (cylinder);
 diffusivity               inverseDistance (cylinder);
 
 // ************************************************************************* //

@@ -16,11 +16,11 @@ FoamFile
 
 scale         1.0;
 
-circElem      10;
-radElem       5;
-bottomElem    15;
-sideElem      20;
-topElem       25;
+circElem      20;
+radElem       20;
+bottomElem    30;
+sideElem      40;
+topElem       50;
 
 #include   "geometry"
 
