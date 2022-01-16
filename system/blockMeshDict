@@ -16,143 +16,167 @@ FoamFile
 
 scale         1.0;
 
+circElem      10;
+radElem       5;
+bottomElem    15;
+sideElem      20;
+topElem       25;
+
 #include   "geometry"
 
 vertices
 (
-    ( $tankLeft    #calc"-$domainWidth"   $tankBottom ) // 0
-    ( $tankRight   #calc"-$domainWidth"   $tankBottom ) // 1
-    ( $tankRight          $domainWidth    $tankBottom ) // 2
-    ( $tankLeft           $domainWidth    $tankBottom ) // 3
-    ( $tankLeft    #calc"-$domainWidth"   $tankTop    ) // 4
-    ( $tankRight   #calc"-$domainWidth"   $tankTop    ) // 5
-    ( $tankRight          $domainWidth    $tankTop    ) // 6
-    ( $tankLeft           $domainWidth    $tankTop    ) // 7
+    ( #calc"-$outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"$outerRad*cos(M_PI/4.0)" ) // 0
+    ( #calc"-$cylRad*cos(M_PI/4.0)"     #calc"-$domainWidth"   #calc"$cylRad*cos(M_PI/4.0)"   ) // 1
+    ( #calc"-$cylRad*cos(M_PI/4.0)"            $domainWidth    #calc"$cylRad*cos(M_PI/4.0)"   ) // 2
+    ( #calc"-$outerRad*cos(M_PI/4.0)"          $domainWidth    #calc"$outerRad*cos(M_PI/4.0)" ) // 3
 
-    // movingZone
-    ( #calc"-$outerRad"   #calc"-$domainWidth"   0.0               ) // 8
-    ( #calc"-$cylRad"     #calc"-$domainWidth"   0.0               ) // 9
-    ( #calc"-$cylRad"            $domainWidth    0.0               ) // 10
-    ( #calc"-$outerRad"          $domainWidth    0.0               ) // 11
+    ( #calc"$outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"$outerRad*cos(M_PI/4.0)" ) // 4
+    ( #calc"$cylRad*cos(M_PI/4.0)"     #calc"-$domainWidth"   #calc"$cylRad*cos(M_PI/4.0)"   ) // 5
+    ( #calc"$cylRad*cos(M_PI/4.0)"            $domainWidth    #calc"$cylRad*cos(M_PI/4.0)"   ) // 6
+    ( #calc"$outerRad*cos(M_PI/4.0)"          $domainWidth    #calc"$outerRad*cos(M_PI/4.0)" ) // 7
 
-    ( 0.0                 #calc"-$domainWidth"   $outerRad         ) // 12
-    ( 0.0                 #calc"-$domainWidth"   $cylRad           ) // 13
-    ( 0.0                        $domainWidth    $cylRad           ) // 14
-    ( 0.0                        $domainWidth    $outerRad         ) // 15
+    ( #calc"$outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"-$outerRad*cos(M_PI/4.0)" ) // 8
+    ( #calc"$cylRad*cos(M_PI/4.0)"     #calc"-$domainWidth"   #calc"-$cylRad*cos(M_PI/4.0)"   ) // 9
+    ( #calc"$cylRad*cos(M_PI/4.0)"            $domainWidth    #calc"-$cylRad*cos(M_PI/4.0)"   ) // 10
+    ( #calc"$outerRad*cos(M_PI/4.0)"          $domainWidth    #calc"-$outerRad*cos(M_PI/4.0)" ) // 11
 
-    ( $outerRad           #calc"-$domainWidth"   0.0               ) // 16
-    ( $cylRad             #calc"-$domainWidth"   0.0               ) // 17
-    ( $cylRad                    $domainWidth    0.0               ) // 18
-    ( $outerRad                  $domainWidth    0.0               ) // 19
+    ( #calc"-$outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"-$outerRad*cos(M_PI/4.0)" ) // 12
+    ( #calc"-$cylRad*cos(M_PI/4.0)"     #calc"-$domainWidth"   #calc"-$cylRad*cos(M_PI/4.0)"   ) // 13
+    ( #calc"-$cylRad*cos(M_PI/4.0)"            $domainWidth    #calc"-$cylRad*cos(M_PI/4.0)"   ) // 14
+    ( #calc"-$outerRad*cos(M_PI/4.0)"          $domainWidth    #calc"-$outerRad*cos(M_PI/4.0)" ) // 15
 
-    ( 0.0                 #calc"-$domainWidth"   #calc"-$outerRad" ) // 20
-    ( 0.0                 #calc"-$domainWidth"   #calc"-$cylRad"   ) // 21
-    ( 0.0                        $domainWidth    #calc"-$cylRad"   ) // 22
-    ( 0.0                        $domainWidth    #calc"-$outerRad" ) // 23
+    ( $tankLeft                         #calc"-$domainWidth"   $tankBottom ) // 16
+    ( $tankLeft                                $domainWidth    $tankBottom ) // 17
+    ( #calc"-$outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   $tankBottom ) // 18
+    ( #calc"-$outerRad*cos(M_PI/4.0)"          $domainWidth    $tankBottom ) // 19
+    ( #calc"$outerRad*cos(M_PI/4.0)"    #calc"-$domainWidth"   $tankBottom ) // 20
+    ( #calc"$outerRad*cos(M_PI/4.0)"           $domainWidth    $tankBottom ) // 21
+    ( $tankRight                        #calc"-$domainWidth"   $tankBottom ) // 22
+    ( $tankRight                               $domainWidth    $tankBottom ) // 23
+
+    ( $tankLeft    #calc"-$domainWidth"   #calc"-$outerRad*cos(M_PI/4.0)" ) // 24
+    ( $tankLeft           $domainWidth    #calc"-$outerRad*cos(M_PI/4.0)" ) // 25
+    ( $tankRight   #calc"-$domainWidth"   #calc"-$outerRad*cos(M_PI/4.0)" ) // 26
+    ( $tankRight          $domainWidth    #calc"-$outerRad*cos(M_PI/4.0)" ) // 27
+
+    ( $tankLeft    #calc"-$domainWidth"   #calc"$outerRad*cos(M_PI/4.0)" ) // 28
+    ( $tankLeft           $domainWidth    #calc"$outerRad*cos(M_PI/4.0)" ) // 29
+    ( $tankRight   #calc"-$domainWidth"   #calc"$outerRad*cos(M_PI/4.0)" ) // 30
+    ( $tankRight          $domainWidth    #calc"$outerRad*cos(M_PI/4.0)" ) // 31
+
+    ( $tankLeft                         #calc"-$domainWidth"   $tankTop ) // 32
+    ( $tankLeft                                $domainWidth    $tankTop ) // 33
+    ( #calc"-$outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   $tankTop ) // 34
+    ( #calc"-$outerRad*cos(M_PI/4.0)"          $domainWidth    $tankTop ) // 35
+    ( #calc"$outerRad*cos(M_PI/4.0)"    #calc"-$domainWidth"   $tankTop ) // 36
+    ( #calc"$outerRad*cos(M_PI/4.0)"           $domainWidth    $tankTop ) // 37
+    ( $tankRight                        #calc"-$domainWidth"   $tankTop ) // 38
+    ( $tankRight                               $domainWidth    $tankTop ) // 39
 );
 
 blocks
 (
-    hex ( 0 1 2 3 4 5 6 7 ) ( 100 1 100 ) simpleGrading ( 1 1 1 )
+    hex ( 0  1  2  3  4  5  6  7  ) ( $radElem 1 $circElem ) simpleGrading ( 1 1 1 )
+    hex ( 4  5  6  7  8  9  10 11 ) ( $radElem 1 $circElem ) simpleGrading ( 1 1 1 )
+    hex ( 8  9  10 11 12 13 14 15 ) ( $radElem 1 $circElem ) simpleGrading ( 1 1 1 )
+    hex ( 12 13 14 15 0  1  2  3  ) ( $radElem 1 $circElem ) simpleGrading ( 1 1 1 )
 
-    hex ( 8  9  10 11 12 13 14 15 ) movingZone1 ( 20 1 20 ) simpleGrading ( 1 1 1 )
-    hex ( 12 13 14 15 16 17 18 19 ) movingZone1 ( 20 1 20 ) simpleGrading ( 1 1 1 )
-    hex ( 16 17 18 19 20 21 22 23 ) movingZone1 ( 20 1 20 ) simpleGrading ( 1 1 1 )
-    hex ( 20 21 22 23 8  9  10 11 ) movingZone1 ( 20 1 20 ) simpleGrading ( 1 1 1 )
+    hex ( 16 18 19 17 24 12 15 25 ) ( $sideElem  1 $bottomElem ) simpleGrading ( 1 1 1 )
+    hex ( 18 20 21 19 12 8  11 15 ) ( $circElem  1 $bottomElem ) simpleGrading ( 1 1 1 )
+    hex ( 20 22 23 21 8  26 27 11 ) ( $sideElem  1 $bottomElem ) simpleGrading ( 1 1 1 )
+
+    hex ( 24 12 15 25 28 0  3  29 ) ( $sideElem 1 $circElem ) simpleGrading ( 1 1 1 )
+    hex ( 8  26 27 11 4  30 31 7  ) ( $sideElem 1 $circElem ) simpleGrading ( 1 1 1 )
+
+    hex ( 28 0  3  29 32 34 35 33 ) ( $sideElem 1 $topElem ) simpleGrading ( 1 1 1 )
+    hex ( 0  4  7  3  34 36 37 35 ) ( $circElem 1 $topElem ) simpleGrading ( 1 1 1 )
+    hex ( 4  30 31 7  36 38 39 37 ) ( $sideElem 1 $topElem ) simpleGrading ( 1 1 1 )
 );
 
 edges
 (
-    arc  9   13 ( #calc"-$cylRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"$cylRad*cos(M_PI/4.0)"  )
-    arc  10  14 ( #calc"-$cylRad*cos(M_PI/4.0)"          $domainWidth    #calc"$cylRad*cos(M_PI/4.0)"  )
-    arc  13  17 ( #calc" $cylRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"$cylRad*cos(M_PI/4.0)"  )
-    arc  14  18 ( #calc" $cylRad*cos(M_PI/4.0)"          $domainWidth    #calc"$cylRad*cos(M_PI/4.0)"  )
-    arc  17  21 ( #calc" $cylRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"-$cylRad*cos(M_PI/4.0)" )
-    arc  18  22 ( #calc" $cylRad*cos(M_PI/4.0)"          $domainWidth    #calc"-$cylRad*cos(M_PI/4.0)" )
-    arc  21  9  ( #calc"-$cylRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"-$cylRad*cos(M_PI/4.0)" )
-    arc  22  10 ( #calc"-$cylRad*cos(M_PI/4.0)"          $domainWidth    #calc"-$cylRad*cos(M_PI/4.0)" )
-
-    arc  8   12 ( #calc"-$outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"$outerRad*cos(M_PI/4.0)"  )
-    arc  11  15 ( #calc"-$outerRad*cos(M_PI/4.0)"          $domainWidth    #calc"$outerRad*cos(M_PI/4.0)"  )
-    arc  12  16 ( #calc" $outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"$outerRad*cos(M_PI/4.0)"  )
-    arc  15  19 ( #calc" $outerRad*cos(M_PI/4.0)"          $domainWidth    #calc"$outerRad*cos(M_PI/4.0)"  )
-    arc  16  20 ( #calc" $outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"-$outerRad*cos(M_PI/4.0)" )
-    arc  19  23 ( #calc" $outerRad*cos(M_PI/4.0)"          $domainWidth    #calc"-$outerRad*cos(M_PI/4.0)" )
-    arc  20  8  ( #calc"-$outerRad*cos(M_PI/4.0)"   #calc"-$domainWidth"   #calc"-$outerRad*cos(M_PI/4.0)" )
-    arc  23  11 ( #calc"-$outerRad*cos(M_PI/4.0)"          $domainWidth    #calc"-$outerRad*cos(M_PI/4.0)" )
+    arc  1   5  ( 0.0               #calc"-$domainWidth"   $cylRad         )
+    arc  2   6  ( 0.0                      $domainWidth    $cylRad         )
+    arc  5   9  ( $cylRad           #calc"-$domainWidth"   0.0             )
+    arc  6   10 ( $cylRad                  $domainWidth    0.0             )
+    arc  9   13 ( 0.0               #calc"-$domainWidth"   #calc"-$cylRad" )
+    arc  10  14 ( 0.0                      $domainWidth    #calc"-$cylRad" )
+    arc  13  1  ( #calc"-$cylRad"   #calc"-$domainWidth"   0.0             )
+    arc  14  2  ( #calc"-$cylRad"          $domainWidth    0.0             )
 );
 
 boundary
 (
-    oversetBoundary
-    {
-        type overset;
-        faces
-        (
-            ( 8  12 15 11 )
-            ( 12 16 19 15 )
-            ( 16 20 23 19 )
-            ( 8  11 23 20 )
-        );
-    }
+    // oversetBoundary
+    // {
+    //     type overset;
+    //     faces
+    //     (
+    //         ( 8  12 15 11 )
+    //         ( 12 16 19 15 )
+    //         ( 16 20 23 19 )
+    //         ( 8  11 23 20 )
+    //     );
+    // }
 
-    top
-    {
-        type wall;
-        faces
-        (
-            ( 4 5 6 7 )
-        );
-    }
+    // top
+    // {
+    //     type wall;
+    //     faces
+    //     (
+    //         ( 4 5 6 7 )
+    //     );
+    // }
 
-    walls
-    {
-        type wall;
-        faces
-        (
-            ( 0 3 2 1 )
-            ( 0 4 7 3 )
-            ( 2 6 5 1 )
-        );
-    }
+    // walls
+    // {
+    //     type wall;
+    //     faces
+    //     (
+    //         ( 0 3 2 1 )
+    //         ( 0 4 7 3 )
+    //         ( 2 6 5 1 )
+    //     );
+    // }
 
-    frontAndBack
-    {
-        type empty;
-        faces
-        (
-            ( 3 7 6 2 )
-            ( 1 5 4 0 )
-        );
-    }
+    // frontAndBack
+    // {
+    //     type empty;
+    //     faces
+    //     (
+    //         ( 3 7 6 2 )
+    //         ( 1 5 4 0 )
+    //     );
+    // }
 
-    cylinder
-    {
-        type wall;
-        faces
-        (
-            ( 9  10 14 13 )
-            ( 13 14 18 17 )
-            ( 17 18 22 21 )
-            ( 9  21 22 10 )
-        );
-    }
+    // cylinder
+    // {
+    //     type wall;
+    //     faces
+    //     (
+    //         ( 9  10 14 13 )
+    //         ( 13 14 18 17 )
+    //         ( 17 18 22 21 )
+    //         ( 9  21 22 10 )
+    //     );
+    // }
 
-    frontAndBack1
-    {
-        type empty;
-        faces
-        (
-            ( 10 11 15 14 )
-            ( 14 15 19 18 )
-            ( 18 19 23 22 )
-            ( 22 23 11 10 )
-            ( 8  9  13 12 )
-            ( 12 13 17 16 )
-            ( 16 17 21 20 )
-            ( 9  8  20 21 )
-        );
-    }
+    // frontAndBack1
+    // {
+    //     type empty;
+    //     faces
+    //     (
+    //         ( 10 11 15 14 )
+    //         ( 14 15 19 18 )
+    //         ( 18 19 23 22 )
+    //         ( 22 23 11 10 )
+    //         ( 8  9  13 12 )
+    //         ( 12 13 17 16 )
+    //         ( 16 17 21 20 )
+    //         ( 9  8  20 21 )
+    //     );
+    // }
 );
 
 // ************************************************************************* //
