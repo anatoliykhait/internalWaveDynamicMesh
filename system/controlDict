@@ -14,16 +14,9 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-libs                (overset fvMotionSolvers);
+libs                (fvMotionSolvers);
 
-DebugSwitches
-{
-    overset                 0;
-    dynamicOversetFvMesh    0;
-    cellVolumeWeight        0;
-}
-
-application         overInterDyMFoam;
+application         interFoam;
 
 startFrom           latestTime;
 

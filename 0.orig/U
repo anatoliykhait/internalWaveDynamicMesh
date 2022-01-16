@@ -20,9 +20,10 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
-    oversetBoundary
+    cylinder
     {
-        type            overset;
+        type            movingWallVelocity;
+        value           uniform (0 0 0);
     }
 
     top
@@ -36,13 +37,7 @@ boundaryField
         value           uniform (0 0 0);
     }
 
-    cylinder
-    {
-        type            movingWallVelocity;
-        value           uniform (0 0 0);
-    }
-
-    "(frontAndBack|frontAndBack1)"
+    frontAndBack
     {
         type            empty;
     }

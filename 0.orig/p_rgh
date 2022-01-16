@@ -20,11 +20,6 @@ internalField   uniform 0;
 
 boundaryField
 {
-    oversetBoundary
-    {
-        type            overset;
-    }
-
     top
     {
         type            fixedValue;
@@ -36,7 +31,7 @@ boundaryField
         type            fixedFluxPressure;
     }
 
-    "(frontAndBack|frontAndBack1)"
+    frontAndBack
     {
         type            empty;
     }

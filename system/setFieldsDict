@@ -16,32 +16,11 @@ FoamFile
 
 defaultFieldValues
 (
-    volScalarFieldValue zoneID 123
     volScalarFieldValue alpha.heavyFluid 0
 );
 
 regions
 (
-    cellToCell
-    {
-        set staticCells;
-
-        fieldValues
-        (
-            volScalarFieldValue zoneID 0
-        );
-    }
-
-    cellToCell
-    {
-        set dynamicCells;
-
-        fieldValues
-        (
-            volScalarFieldValue zoneID 1
-        );
-    }
-
     boxToCell
     {
         box ( -100 -100 -100 ) ( 100 100 0.4 );

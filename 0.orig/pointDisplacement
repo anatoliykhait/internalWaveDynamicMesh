@@ -20,15 +20,12 @@ internalField   uniform (0 0 0);
 
 boundaryField
 {
-    oversetBoundary
-    {
-        patchType       overset;
-        type            zeroGradient;
-    }
-
     cylinder
     {
-        type            zeroGradient;
+        type            oscillatingDisplacement;
+        amplitude       (0.0 0.0 0.1);
+        omega           0.889;
+        value           uniform (0 0 0);
     }
 
     "(walls|top)"
@@ -37,7 +34,7 @@ boundaryField
         value           uniform (0 0 0);
     }
 
-    "(frontAndBack|frontAndBack1)"
+    frontAndBack
     {
         type            empty;
     }

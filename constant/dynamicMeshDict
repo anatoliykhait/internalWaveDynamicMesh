@@ -14,27 +14,13 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dynamicFvMesh       dynamicOversetFvMesh;
+dynamicFvMesh             dynamicMotionSolverFvMesh;
 
-dynamicOversetFvMeshCoeffs
-{
-    // Control the number of interpolated cells
-    // layerRelax 0.3;
-}
+// solver                    displacementSBRStress;
+solver                    displacementLaplacian;
 
-solver              multiSolidBodyMotionSolver;
-
-multiSolidBodyMotionSolverCoeffs
-{
-    movingZone1
-    {
-        solidBodyMotionFunction oscillatingLinearMotion;
-        oscillatingLinearMotionCoeffs
-        {
-            amplitude       (0.0 0.0 0.1);
-            omega           0.889;
-        }
-    }
-}
+// diffusivity               quadratic inversePointDistance (cylinder);
+// diffusivity               exponential 30 inversePointDistance (cylinder);
+diffusivity               inverseDistance (cylinder);
 
 // ************************************************************************* //

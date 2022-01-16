@@ -3,12 +3,11 @@
 cp -r 0.orig 0
 
 blockMesh
-topoSet
 setFields
 
 decomposePar
 
-mpirun -oversubscribe -np 12 overInterDyMFoam -parallel &> log
+mpirun -oversubscribe -np 12 interFoam -parallel &> log
 
 # paraFoam -touch-all
 paraFoam -touch

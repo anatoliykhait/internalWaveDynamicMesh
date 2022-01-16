@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "geometry": "cpp",
-        "blockmeshdict": "cpp"
+        "blockmeshdict": "cpp",
+        "controldict": "cpp",
+        "dynamicmeshdict": "cpp"
     }
 }
