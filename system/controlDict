@@ -62,7 +62,7 @@ functions
         libs            (libinternalWave);
         enabled         true;
         writeControl    adjustableRunTime;
-        writeInterval   0.1;
+        writeInterval   10;
         
         folder          textfields;
         

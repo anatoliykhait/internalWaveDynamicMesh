@@ -1,6 +1,6 @@
 clear;
 
-data = dlmread('textfields/time_1.7', ' ', 2, 0);
+data = dlmread('textfields/time_40', ' ', 2, 0);
 
 x = data(:,1);
 z = data(:,3);
